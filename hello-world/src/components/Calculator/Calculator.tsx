@@ -95,9 +95,22 @@ const Calculator: React.FC = () => {
     }
   };
 
+  // History logic: Show first operand and operator if they exist and we are waiting or entering second operand
+  const getHistory = () => {
+    if (firstOperand !== null && operator) {
+      return `${firstOperand} ${operator}`;
+    }
+    return '';
+  };
+
   return (
     <div className={styles.calculator}>
-      <div className={styles.display}>{displayValue}</div>
+      <div className={styles.displayContainer}>
+        <div className={styles.history}>{getHistory()}</div>
+        {/* Use key to trigger animation on value change */}
+        <div key={displayValue} className={styles.display}>{displayValue}</div>
+      </div>
+
       <div className={styles.keypad}>
         {/* Row 1 */}
         <button className={`${styles.button} ${styles.function}`} onClick={clear}>AC</button>
