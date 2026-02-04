@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css';
-import Calculator from './components/Calculator/Calculator';
+import { AuthForm } from './components/AuthForm';
 
 function App() {
   return (
-    <div className="App">
-      <Calculator />
+    <div className="container d-flex flex-column justify-content-center align-items-center min-vh-100 bg-light">
+      <AuthForm />
     </div>
   );
 }
